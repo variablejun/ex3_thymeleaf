@@ -23,7 +23,7 @@ public class SampleController {
         log.info("ex1의 정보......");
     }
 
-    @GetMapping({"/ex2", "/exLink"})
+    @GetMapping({"/ex2", "/exLink", "/exFormat"})
     public void exModel(Model model){
         List<SampleDTO> list = IntStream.rangeClosed(1, 20).asLongStream().mapToObj(
                 i -> {
@@ -38,7 +38,7 @@ public class SampleController {
         model.addAttribute("list", list);
     }
 
-    @GetMapping("/exInline")
+    @GetMapping("exInline")
     public String exInline(RedirectAttributes redirectAttributes){
         SampleDTO dto = SampleDTO.builder()
                 .sno(100L)
@@ -56,5 +56,16 @@ public class SampleController {
         log.info("ex3() 호출됨");
     }
 
-
+    @GetMapping("/exLayout")
+    public void exLayout1(){
+        log.info("exLayout1() 호출됨");
+    }
+    @GetMapping("/exLayout2")
+    public void exLayout2(){
+        log.info("exLayout2() 호출됨");
+    }
+    @GetMapping("/exLayout3")
+    public void exLayout3(){
+        log.info("exLayout3() 호출됨");
+    }
 }
